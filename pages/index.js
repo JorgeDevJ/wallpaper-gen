@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import { getDataImage } from "../services/apiconfig/indexApi";
@@ -38,6 +39,9 @@ export default function Home() {
   }, []);
   return (
     <homeIndex>
+      <Head>
+        <title>Home</title>
+      </Head>
       <GridImages>
         {data.map(({ id, urls, alt_description, width, height }) => {
           const { full } = urls;
