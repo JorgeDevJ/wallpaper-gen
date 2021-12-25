@@ -4,7 +4,11 @@ import Image from "next/image";
 
 const Card = ({ image, title, w, h }) => {
   return (
-    <div>
+    <div
+      style={{
+        paddingTop: "10px,",
+      }}
+    >
       <Image
         src={image}
         alt={title}
