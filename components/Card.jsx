@@ -6,7 +6,7 @@ const Card = ({ image, title, w, h }) => {
   return (
     <div
       style={{
-        paddingTop: "10px,",
+        marginBottom: "10px",
       }}
     >
       <Image

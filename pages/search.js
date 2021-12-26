@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Card from "../components/Card";
 import GridImages from "../components/GridImages";
-import { getDataImage } from "../services/apiconfig/indexApi";
 import useGetImage from "../hooks/useGetImage";
 import HomeIndex from "./layaut/HomeIndex";
 import ListPages from "../components/ListPages";
@@ -12,12 +10,9 @@ const Search = () => {
   const [images, pageValue] = useGetImage(q, page);
   const nextPage = () => {
     const number = parseInt(page);
-    console.log(number);
     router.push(`/search?q=${q}&page=${(number += 1)}`, undefined, {
       shallow: true,
     });
-
-    console.log(router);
   };
   const prevPage = () => {
     const number = parseInt(page);
@@ -25,8 +20,6 @@ const Search = () => {
     router.push(`/search?q=${q}&page=${number - 1}`, undefined, {
       shallow: true,
     });
-
-    console.log(router);
   };
   return (
     <HomeIndex>
