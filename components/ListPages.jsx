@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const ContainerDivButton = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 const Button = styled.button`
   background-color: #000;
@@ -33,6 +34,6 @@ ListPages.propTypes = {
   prev: PropTypes.func,
   next: PropTypes.func,
   pageInit: PropTypes.string,
-  pageFinish: PropTypes.string,
+  pageFinish: PropTypes.number,
 };
 export default ListPages;
