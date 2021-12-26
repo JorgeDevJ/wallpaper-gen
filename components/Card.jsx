@@ -14,8 +14,10 @@ const Card = ({ image, title, w, h }) => {
         alt={title}
         width={w}
         height={h}
+        quality="90"
         priority
-        quality={100}
+        placeholder="blur"
+        blurDataURL
       />
     </div>
   );
