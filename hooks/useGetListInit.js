@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getDataImage } from "../services/apiconfig/indexApi";
 const useGetListInit = () => {
   const [data, setData] = useState([]);
+  const [pageId, setPageid] = useState(1);
   const getTopImage = async (pageId) => {
     try {
       const { data } = await getDataImage.get("/photos", {
@@ -16,9 +17,9 @@ const useGetListInit = () => {
     }
   };
   useEffect(() => {
-    getTopImage(1);
-  }, []);
-  return [data];
+    getTopImage(pageId);
+  }, [pageId]);
+  return [data, pageId, setPageid];
 };
 
 export default useGetListInit;

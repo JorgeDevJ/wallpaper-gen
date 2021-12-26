@@ -1,7 +1,6 @@
 import React from "react";
-import { useRouter } from "next/router";
 import styled from "styled-components";
-
+import PropTypes from "prop-types";
 const ContainerDivButton = styled.div`
   display: flex;
   align-items: center;
@@ -14,34 +13,26 @@ const Button = styled.button`
   padding: 10px;
   border-radius: 10px;
 `;
-const ListPages = (props) => {
-  const router = useRouter();
-  const { q, page } = router.query;
-  const nextPage = () => {
-    const number = parseInt(page);
-    console.log(number);
-    router.push(`/search?q=${q}&page=${(number += 1)}`, undefined, {
-      shallow: true,
-    });
-
-    console.log(router);
-  };
-  const prevPage = () => {
-    const number = parseInt(page);
-    console.log(number);
-    router.push(`/search?q=${q}&page=${number - 1}`, undefined, {
-      shallow: true,
-    });
-
-    console.log(router);
-  };
+const ListPages = ({ pageInit, pageFinish, prev, next }) => {
   return (
     <ContainerDivButton>
-      <Button onClick={prevPage}>Anterior pagina</Button>
-      {props.children}
-      <Button onClick={nextPage}>Siquiete pagina</Button>
+      <Button onClick={prev}>Anterior pagina</Button>
+      <div
+        style={{
+          margin: "0 1rem",
+        }}
+      >
+        <span>{pageInit}</span> of <span>{pageFinish}</span>
+      </div>
+      <Button onClick={next}>Siquiete pagina</Button>
     </ContainerDivButton>
   );
 };
 
+ListPages.propTypes = {
+  prev: PropTypes.func,
+  next: PropTypes.func,
+  pageInit: PropTypes.string,
+  pageFinish: PropTypes.string,
+};
 export default ListPages;

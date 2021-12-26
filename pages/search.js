@@ -10,17 +10,33 @@ const Search = () => {
   const router = useRouter();
   const { q, page } = router.query;
   const [images, pageValue] = useGetImage(q, page);
+  const nextPage = () => {
+    const number = parseInt(page);
+    console.log(number);
+    router.push(`/search?q=${q}&page=${(number += 1)}`, undefined, {
+      shallow: true,
+    });
+
+    console.log(router);
+  };
+  const prevPage = () => {
+    const number = parseInt(page);
+    console.log(number);
+    router.push(`/search?q=${q}&page=${number - 1}`, undefined, {
+      shallow: true,
+    });
+
+    console.log(router);
+  };
   return (
     <HomeIndex>
-      <ListPages>
-        <div
-          style={{
-            margin: "0 1rem",
-          }}
-        >
-          <span>{page}</span> of <span>{pageValue}</span>
-        </div>
-      </ListPages>
+      <ListPages
+        next={nextPage}
+        prev={prevPage}
+        pageInit={page}
+        pageFinish={pageValue}
+      />
+
       <GridImages>
         {images.map(({ id, urls, alt_description, width, height }) => {
           const { regular } = urls;
