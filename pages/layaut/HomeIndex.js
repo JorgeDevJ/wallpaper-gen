@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import Search from "../components/Search";
-import Button from "../components/Button";
+import Search from "../../components/Search";
+import Button from "../../components/Button";
 
 const HomeIndex = (props) => {
   return (

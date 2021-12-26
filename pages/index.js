@@ -2,7 +2,7 @@ import Head from "next/head";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import { getDataImage } from "../services/apiconfig/indexApi";
-import HomeIndex from "../layaut/HomeIndex";
+import HomeIndex from "./layaut/HomeIndex";
 import styled from "styled-components";
 import GridImages from "../components/GridImages";
 
