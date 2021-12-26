@@ -17,7 +17,7 @@ const HomeIndex = (props) => {
           justifyContent: "space-between",
         }}
       >
-        
+        <Button />
         <Search />
       </header>
       {props.children}

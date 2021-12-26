@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Card from "../../components/Card";
 import GridImages from "../../components/GridImages";
 import { getDataImage } from "../../services/apiconfig/indexApi";
-import HomeIndex from "../../layaut/homeIndex";
+import HomeIndex from "../../layaut/HomeIndex";
 const Query = () => {
   const router = useRouter();
   const { query } = router.query;
