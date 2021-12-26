@@ -10,7 +10,7 @@ const Search = () => {
   const [images, pageValue] = useGetImage(q, page);
   const nextPage = () => {
     const number = parseInt(page);
-    router.push(`/search?q=${q}&page=${(number += 1)}`, undefined, {
+    router.push(`/search?q=${q}&page=${number + 1}`, undefined, {
       shallow: true,
     });
   };
