@@ -12,9 +12,10 @@ const Card = ({ image, title, w, h }) => {
       <Image
         src={image}
         alt={title}
-        /* layout="responsive"  */ width={w}
+        width={w}
         height={h}
         priority
+        quality={100}
       />
     </div>
   );

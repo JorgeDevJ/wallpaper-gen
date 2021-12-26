@@ -2,7 +2,7 @@ import Head from "next/head";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import { getDataImage } from "../services/apiconfig/indexApi";
-import homeIndex from "../layaut/homeIndex";
+import HomeIndex from "../layaut/HomeIndex";
 import styled from "styled-components";
 const GridImages = styled.main`
   column-gap: 10px;
@@ -34,28 +34,26 @@ export default function Home() {
       console.log(error);
     }
   };
-  useEffect(() => {
-    getTopImage(1);
-  }, []);
+  useEffect(() => {}, []);
   return (
-    <homeIndex>
+    <HomeIndex>
       <Head>
         <title>Home</title>
       </Head>
-      <GridImages>
+      {/* <GridImages>
         {data.map(({ id, urls, alt_description, width, height }) => {
-          const { full } = urls;
+          const { raw } = urls;
           return (
             <Card
               key={id}
-              image={full}
+              image={raw}
               title={alt_description}
               w={width}
               h={height}
             />
           );
         })}
-      </GridImages>
-    </homeIndex>
+      </GridImages> */}
+    </HomeIndex>
   );
 }
