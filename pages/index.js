@@ -1,29 +1,12 @@
 import Head from "next/head";
 import Card from "../components/Card";
-import { useState, useEffect } from "react";
-import { getDataImage } from "../services/apiconfig/indexApi";
+import useGetListInit from "../hooks/useGetListInit";
 import HomeIndex from "./layaut/HomeIndex";
-import styled from "styled-components";
 import GridImages from "../components/GridImages";
 
 export default function Home() {
-  const [data, setData] = useState([]);
-  const getTopImage = async (pageId) => {
-    try {
-      const { data } = await getDataImage.get("/photos", {
-        params: {
-          page: pageId,
-        },
-      });
-      const response = data;
-      setData(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getTopImage(1);
-  }, []);
+  const [data] = useGetListInit();
+
   return (
     <HomeIndex>
       <Head>

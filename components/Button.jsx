@@ -19,7 +19,6 @@ const Button = () => {
   };
   return (
     <ContButton visible={router.pathname === "/" ? "hidden" : "visible"}>
-      {console.log(router.pathname)}
       <ButtonReturn onClick={Back}>Return</ButtonReturn>
     </ContButton>
   );

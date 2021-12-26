@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -46,11 +45,16 @@ const Search = () => {
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
-    /* history.push(`?q=${inputValue}`); */
   };
   const handleInout = (e) => {
     const value = e.target.value;
-    router.push(`/search/${value}`);
+    router.push({
+      pathname: "/search",
+      query: {
+        q: value,
+        page: 1,
+      },
+    });
   };
   return (
     <Form onSubmit={handleSubmit}>
@@ -65,5 +69,4 @@ const Search = () => {
     </Form>
   );
 };
-/* onKeyUp={(e) => (e.key === "Enter" ? funcSearch(e) : null)} */
 export default Search;
