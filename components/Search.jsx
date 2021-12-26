@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Router from "next/router";
 import { useRouter } from "next/router";
 
 const ContainerInput = styled.div`
@@ -44,7 +43,6 @@ const Input = styled.input`
   }
 `;
 const Search = () => {
-  const [inputValue, setInputValue] = useState("");
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,8 +50,7 @@ const Search = () => {
   };
   const handleInout = (e) => {
     const value = e.target.value;
-    setInputValue(value);
-    router.push(`/s/${value}`);
+    router.push(`/search/${value}`);
   };
   return (
     <Form onSubmit={handleSubmit}>

@@ -13,13 +13,12 @@ const ButtonReturn = styled.button`
 `;
 const Button = () => {
   const router = useRouter();
-  const { pathname } = router;
 
   const Back = () => {
-    router.push("/");
+    router.back();
   };
   return (
-    <ContButton visible={pathname === "/" ? "hidden" : "visible"}>
+    <ContButton visible={router.pathname === "/" ? "hidden" : "visible"}>
       {console.log(router.pathname)}
       <ButtonReturn onClick={Back}>Return</ButtonReturn>
     </ContButton>
