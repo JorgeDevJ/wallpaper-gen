@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 const CardContainer = styled.div`
@@ -33,6 +33,7 @@ const ContainerUsuario = styled.div`
   }
 `;
 const Card = ({ image, title, w, h, user, user_image, id_user }) => {
+  const newName = user.replace(/ /g, "");
   return (
     <CardContainer>
       <CardImageInfo>
@@ -59,7 +60,9 @@ const Card = ({ image, title, w, h, user, user_image, id_user }) => {
             placeholder="blur"
             blurDataURL
           />
-          <span className="spanInfo">{user}</span>{" "}
+          <Link href={`/user/${user}`} passHref>
+            <span className="spanInfo">{user}</span>
+          </Link>
         </ContainerUsuario>
       </CardImageInfo>
     </CardContainer>
