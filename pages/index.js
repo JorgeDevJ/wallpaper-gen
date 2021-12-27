@@ -22,15 +22,10 @@ export default function Home() {
         <ScreenComponent />
       ) : (
         <>
-          <ListPages
-            next={nextPage}
-            prev={prevPage}
-            pageInit={pageId}
-            pageFinish="?"
-          />
+          <ListPages next={nextPage} prev={prevPage} />
 
           <GridImages>
-            {data.map(({ id, urls, alt_description, width, height }) => {
+            {data.map(({ id, urls, alt_description, width, height, user }) => {
               const { regular } = urls;
               return (
                 <Card
@@ -39,6 +34,9 @@ export default function Home() {
                   title={alt_description}
                   w={width}
                   h={height}
+                  user={user.name}
+                  user_image={user.profile_image.medium}
+                  id_user={user.id}
                 />
               );
             })}

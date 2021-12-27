@@ -34,20 +34,40 @@ const Search = () => {
             pageInit={page}
             pageFinish={pageValue}
           />
-
+          <h1
+            style={{
+              margin: "10px 10px 5px 10px",
+            }}
+          >
+            Results for: {q}
+          </h1>
           <GridImages>
-            {images.map(({ id, urls, alt_description, width, height }) => {
-              const { regular } = urls;
-              return (
-                <Card
-                  key={id}
-                  image={regular}
-                  title={alt_description}
-                  w={width}
-                  h={height}
-                />
-              );
-            })}
+            {images.map(
+              ({
+                urls,
+                alt_description,
+                width,
+                height,
+                user,
+                user_image,
+                id_user,
+              }) => {
+                const { regular } = urls;
+                const { profile_image, id, name } = user;
+                return (
+                  <Card
+                    key={id}
+                    image={regular}
+                    title={alt_description}
+                    w={width}
+                    h={height}
+                    user={name}
+                    user_image={profile_image.medium}
+                    id_user={id}
+                  />
+                );
+              }
+            )}
           </GridImages>
         </>
       )}

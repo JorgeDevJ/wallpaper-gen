@@ -8,8 +8,11 @@ const ButtonReturn = styled.button`
   border: 0;
   outline: none;
   color: #fff;
-  padding: 10px;
+  padding: 7px 20px;
   border-radius: 10px;
+  cursor: pointer;
+  font-family: "Catamaran", sans-serif;
+  font-size: 16px;
 `;
 const Button = () => {
   const router = useRouter();

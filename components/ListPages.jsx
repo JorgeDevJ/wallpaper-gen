@@ -11,21 +11,24 @@ const Button = styled.button`
   border: 0;
   outline: none;
   color: #fff;
-  padding: 10px;
+  padding: 7px 20px;
   border-radius: 10px;
+  cursor: pointer;
+  font-family: "Catamaran", sans-serif;
+  font-size: 16px;
 `;
 const ListPages = ({ pageInit, pageFinish, prev, next }) => {
   return (
     <ContainerDivButton>
-      <Button onClick={prev}>Anterior pagina</Button>
+      <Button onClick={prev}>Prev</Button>
       <div
         style={{
           margin: "0 1rem",
         }}
       >
-        <span>{pageInit}</span> of <span>{pageFinish}</span>
+        <span>{pageInit}</span> / <span>{pageFinish}</span>
       </div>
-      <Button onClick={next}>Siguiente pagina</Button>
+      <Button onClick={next}>Next</Button>
     </ContainerDivButton>
   );
 };
