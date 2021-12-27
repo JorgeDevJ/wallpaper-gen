@@ -3,8 +3,10 @@ import { getDataImage } from "../services/apiconfig/indexApi";
 const useGetListInit = () => {
   const [data, setData] = useState([]);
   const [pageId, setPageid] = useState(1);
+  const [loader, setLoader] = useState(false);
   const getTopImage = async (pageId) => {
     try {
+      setLoader(true);
       const { data } = await getDataImage.get("/photos", {
         params: {
           page: pageId,
@@ -12,6 +14,11 @@ const useGetListInit = () => {
       });
       const response = data;
       setData(response);
+      if (response.length !== 0) {
+        setLoader(false);
+      } else {
+        setLoader(true);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -19,7 +26,7 @@ const useGetListInit = () => {
   useEffect(() => {
     getTopImage(pageId);
   }, [pageId]);
-  return [data, pageId, setPageid];
+  return [data, pageId, setPageid, loader];
 };
 
 export default useGetListInit;

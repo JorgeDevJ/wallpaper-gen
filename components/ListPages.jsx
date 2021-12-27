@@ -25,7 +25,7 @@ const ListPages = ({ pageInit, pageFinish, prev, next }) => {
       >
         <span>{pageInit}</span> of <span>{pageFinish}</span>
       </div>
-      <Button onClick={next}>Siquiete pagina</Button>
+      <Button onClick={next}>Siguiente pagina</Button>
     </ContainerDivButton>
   );
 };
