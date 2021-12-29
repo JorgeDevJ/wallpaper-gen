@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { getDataImage } from "../services/apiconfig/indexApi";
+import useLocalStorage from "use-local-storage";
 const useGetListInit = () => {
   const [data, setData] = useState([]);
-  const [pageId, setPageid] = useState(1);
+  const [pageId, setPageid] = useLocalStorage("page", 1);
+
   const [loader, setLoader] = useState(false);
   const getTopImage = async (pageId) => {
     try {

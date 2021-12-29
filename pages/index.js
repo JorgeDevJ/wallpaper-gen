@@ -22,8 +22,7 @@ export default function Home() {
         <ScreenComponent />
       ) : (
         <>
-          <ListPages next={nextPage} prev={prevPage} />
-
+          <ListPages next={nextPage} prev={prevPage} pageInit={pageId} />
           <GridImages>
             {data.map(({ id, urls, alt_description, width, height, user }) => {
               const { regular } = urls;

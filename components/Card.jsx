@@ -7,13 +7,17 @@ const CardContainer = styled.div`
   .image_card {
     border-radius: 10px;
   }
+  &:hover {
+    transform: scale(0.95);
+    transition: transform ease-in-out 0.2s;
+  }
 `;
 const CardImageInfo = styled.div`
   position: relative;
 `;
 const ContainerUsuario = styled.div`
   position: absolute;
-  bottom: 3px;
+  bottom: 3.5px;
   @media (min-width: 1000px) {
     padding: 10px 30% 10px 15px;
   }
@@ -39,7 +43,6 @@ const ContainerUsuario = styled.div`
   }
 `;
 const Card = ({ image, title, w, h, user, user_image, id_user, user_name }) => {
-  const newName = user.replace(/ /g, "");
   return (
     <CardContainer>
       <CardImageInfo>
