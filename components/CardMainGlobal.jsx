@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import JsFileDownloader from "js-file-downloader";
 import styled from "styled-components";
 const CardContainer = styled.div`
   margin-bottom: 10px;
@@ -10,6 +11,7 @@ const CardContainer = styled.div`
 `;
 const CardImageInfo = styled.div`
   position: relative;
+  padding: 20px;
 `;
 const ContainerUsuario = styled.div`
   position: absolute;
@@ -38,7 +40,7 @@ const ContainerUsuario = styled.div`
     border-radius: 100px;
   }
 `;
-const CardImageUser = ({
+const CardMainGlobal = ({
   image,
   title,
   w,
@@ -47,24 +49,42 @@ const CardImageUser = ({
   user_image,
   id_user,
   user_name,
+  id_image,
 }) => {
+  const downloadImage = (e) => {
+    e.preventDefault();
+    new JsFileDownloader({
+      url: image,
+      headers: [{ name: id_image }],
+    })
+      .then(function () {
+        console.log("descarga completa");
+      })
+      .catch(function (error) {
+        consoloe.log(error);
+      });
+  };
   return (
     <CardContainer>
       <CardImageInfo>
         <Image
           className="image_card"
           src={image}
-          alt={title}
-          width={100}
-          height={100}
+          alt={id_image}
+          width={w}
+          height={h}
           quality="90"
           priority
           placeholder="blur"
           blurDataURL
         />
+        {/* <a href={image} download={id_image}>
+          descargar
+        </a> */}
+        <button onClick={downloadImage}>Descargar</button>
       </CardImageInfo>
     </CardContainer>
   );
 };
 
-export default CardImageUser;
+export default CardMainGlobal;

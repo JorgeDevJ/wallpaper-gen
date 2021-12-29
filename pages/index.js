@@ -31,6 +31,7 @@ export default function Home() {
                   key={id}
                   image={regular}
                   title={alt_description}
+                  id_image={id}
                   w={width}
                   h={height}
                   user={user.name}

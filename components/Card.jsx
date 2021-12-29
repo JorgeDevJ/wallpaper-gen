@@ -42,21 +42,33 @@ const ContainerUsuario = styled.div`
     border-radius: 100px;
   }
 `;
-const Card = ({ image, title, w, h, user, user_image, id_user, user_name }) => {
+const Card = ({
+  image,
+  title,
+  w,
+  h,
+  user,
+  user_image,
+  id_user,
+  user_name,
+  id_image,
+}) => {
   return (
     <CardContainer>
       <CardImageInfo>
-        <Image
-          className="image_card"
-          src={image}
-          alt={title}
-          width={w}
-          height={h}
-          quality="90"
-          priority
-          placeholder="blur"
-          blurDataURL
-        />
+        <Link href={`/photo/${id_image}`} passHref>
+          <Image
+            className="image_card"
+            src={image}
+            alt={id_image}
+            width={w}
+            height={h}
+            quality="90"
+            priority
+            placeholder="blur"
+            blurDataURL
+          />
+        </Link>
         <ContainerUsuario>
           <Image
             className="image_card"

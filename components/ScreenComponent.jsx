@@ -30,7 +30,7 @@ const Balls = styled.div`
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: #1b5299;
+    background: #000;
     margin: 0 6px 0 0;
     animation: oscillate 0.7s ease-in forwards infinite;
   }

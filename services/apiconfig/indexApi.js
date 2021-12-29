@@ -19,3 +19,9 @@ export const getSearchUser = axios.create({
     Accept: "aplication/json",
   },
 });
+export const getIdPhoto = axios.create({
+  baseURL: "/api/getphotoid",
+  headers: {
+    Accept: "aplication/json",
+  },
+});

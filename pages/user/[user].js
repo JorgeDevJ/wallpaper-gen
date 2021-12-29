@@ -5,7 +5,7 @@ import ScreenComponent from "../../components/ScreenComponent";
 import { getSearchUser } from "../../services/apiconfig/indexApi";
 import UserInfo from "../../components/UserInfo";
 import GridImages from "../../components/GridImages";
-import CardImageUser from "../../components/CardImageUser";
+import CardMainGlobal from "../../components/CardMainGlobal";
 const User = () => {
   const [user, setUser] = useState([]);
   const [photos, setPhotos] = useState([]);
@@ -70,7 +70,15 @@ const User = () => {
         {photos.map(({ id, urls, updated_at }) => {
           /* const { id, blur_hash } = photos[0]; */
           console.log(id);
-          return <CardImageUser key={id} image={urls.raw} title={updated_at} />;
+          return (
+            <CardMainGlobal
+              key={id}
+              image={urls.raw}
+              title={updated_at}
+              w={100}
+              h={100}
+            />
+          );
         })}
       </GridImages>
       {/* {user.map(
