@@ -78,10 +78,6 @@ const CardMainGlobal = ({
           placeholder="blur"
           blurDataURL
         />
-        {/* <a href={image} download={id_image}>
-          descargar
-        </a> */}
-        <button onClick={downloadImage}>Descargar</button>
       </CardImageInfo>
     </CardContainer>
   );

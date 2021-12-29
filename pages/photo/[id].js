@@ -25,13 +25,18 @@ const IdPhoto = () => {
       {image.map(({ urls, id, width, height }) => {
         const { full, raw } = urls;
         return (
-          <CardMainGlobal
-            key={id}
-            image={full}
-            id_image={id}
-            w={width}
-            h={height}
-          />
+          <>
+            <CardMainGlobal
+              key={id}
+              image={full}
+              id_image={id}
+              w={width}
+              h={height}
+            />
+            <a href={full} download={id}>
+              descargar
+            </a>
+          </>
         );
       })}
     </div>
