@@ -14,9 +14,8 @@ const CardImageInfo = styled.div`
 const ContainerUsuario = styled.div`
   position: absolute;
   bottom: 3px;
-  @(min-width: 1000px){
+  @media (min-width: 1000px) {
     padding: 10px 30% 10px 15px;
-    font-size: 18px;
   }
   box-shadow: 0px 2px 100px 30px rgba(0, 0, 0, 0.6) inset;
   -webkit-box-shadow: 0px 2px 100px 30px rgba(0, 0, 0, 0.6) inset;
@@ -31,6 +30,9 @@ const ContainerUsuario = styled.div`
     font-size: 15px;
     font-weight: 600;
     margin: 0 0 0 15px;
+    @media (min-width: 1000px) {
+      font-size: 18px;
+    }
   }
   .image_card {
     border-radius: 100px;
