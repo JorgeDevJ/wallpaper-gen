@@ -36,6 +36,7 @@ export default function Home() {
                   h={height}
                   user={user.name}
                   user_image={user.profile_image.medium}
+                  user_name={user.username}
                   id_user={user.id}
                 />
               );

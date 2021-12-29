@@ -7,12 +7,12 @@ const useGetListInit = () => {
   const getTopImage = async (pageId) => {
     try {
       setLoader(true);
-      const { data } = await getDataImage.get("/photos", {
+      const { data } = await getDataImage({
         params: {
           page: pageId,
         },
       });
-      const response = data;
+      const response = data.data;
       setData(response);
       if (response.length !== 0) {
         setLoader(false);

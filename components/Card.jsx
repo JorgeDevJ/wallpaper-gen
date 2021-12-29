@@ -14,17 +14,21 @@ const CardImageInfo = styled.div`
 const ContainerUsuario = styled.div`
   position: absolute;
   bottom: 3px;
-  border-radius: 0 10px 0 10px;
+  @(min-width: 1000px){
+    padding: 10px 30% 10px 15px;
+    font-size: 18px;
+  }
   box-shadow: 0px 2px 100px 30px rgba(0, 0, 0, 0.6) inset;
   -webkit-box-shadow: 0px 2px 100px 30px rgba(0, 0, 0, 0.6) inset;
   -moz-box-shadow: 0px 2px 100px 30px rgba(0, 0, 0, 0.6) inset;
-  padding: 10px 50% 10px 15px;
+  border-radius: 0 10px 0 10px;
+  padding: 5px 30% 5px 15px;
   display: flex;
   align-items: center;
 
   .spanInfo {
     color: #fff;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     margin: 0 0 0 15px;
   }
@@ -32,7 +36,7 @@ const ContainerUsuario = styled.div`
     border-radius: 100px;
   }
 `;
-const Card = ({ image, title, w, h, user, user_image, id_user }) => {
+const Card = ({ image, title, w, h, user, user_image, id_user, user_name }) => {
   const newName = user.replace(/ /g, "");
   return (
     <CardContainer>
@@ -53,14 +57,14 @@ const Card = ({ image, title, w, h, user, user_image, id_user }) => {
             className="image_card"
             src={user_image}
             alt={id_user}
-            width={50}
-            height={50}
+            width={30}
+            height={30}
             quality="90"
             priority
             placeholder="blur"
             blurDataURL
           />
-          <Link href={`/user/${user}`} passHref>
+          <Link href={`/user/${user_name}`} passHref>
             <span className="spanInfo">{user}</span>
           </Link>
         </ContainerUsuario>

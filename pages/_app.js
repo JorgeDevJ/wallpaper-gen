@@ -1,6 +1,7 @@
 import Global from "../styles/Global";
 import Script from "next/script";
 import "../styles/font.css";
+import "../styles/normalize.css";
 function MyApp({ Component, pageProps }) {
   return (
     <>

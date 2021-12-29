@@ -41,19 +41,12 @@ const Search = () => {
           >
             Results for: {q}
           </h1>
+          {console.log(pageValue)}
           <GridImages>
             {images.map(
-              ({
-                urls,
-                alt_description,
-                width,
-                height,
-                user,
-                user_image,
-                id_user,
-              }) => {
+              ({ id, urls, alt_description, width, height, user }) => {
                 const { regular } = urls;
-                const { profile_image, id, name } = user;
+                const { profile_image, name, username } = user;
                 return (
                   <Card
                     key={id}
@@ -62,8 +55,9 @@ const Search = () => {
                     w={width}
                     h={height}
                     user={name}
+                    user_name={user.username}
                     user_image={profile_image.medium}
-                    id_user={id}
+                    id_user={user.id}
                   />
                 );
               }

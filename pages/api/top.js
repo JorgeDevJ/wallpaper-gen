@@ -3,9 +3,9 @@ import axios from "axios";
 
 const getList = async (req, res) => {
   const {
-    query: { id },
+    query: { page },
   } = req;
-  const URL = `https://api.unsplash.com/photos?page=${id}`;
+  const URL = `https://api.unsplash.com/photos?page=${page}`;
   const response = await axios.get(URL, {
     params: {
       client_id: process.env.KEY_UNSPLASH,

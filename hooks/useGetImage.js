@@ -1,5 +1,5 @@
 import React from "react";
-import { getDataImage } from "../services/apiconfig/indexApi";
+import { getDataImageSearch } from "../services/apiconfig/indexApi";
 import { useState, useEffect } from "react";
 const useGetImage = (q, page) => {
   const [images, setImages] = useState([]);
@@ -8,14 +8,14 @@ const useGetImage = (q, page) => {
   const getTopImage = async (value, pageIndex) => {
     try {
       setLoader(true);
-      const { data } = await getDataImage.get("search/photos", {
+      const { data } = await getDataImageSearch({
         params: {
           query: value,
           page: pageIndex,
         },
       });
-      const response = data.results;
-      const p = data.total_pages;
+      const response = data.data.results;
+      const p = data.data.total_pages;
       setImages(response);
       if (response.length !== 0) {
         setLoader(false);
