@@ -22,7 +22,6 @@ const IdPhoto = () => {
   }, [query.id]);
   return (
     <div>
-      {console.log(image)}
       {image.map(({ urls, id, width, height }) => {
         const { full, raw } = urls;
         return (
