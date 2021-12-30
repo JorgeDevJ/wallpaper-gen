@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import { getIdPhoto } from "../../services/apiconfig/indexApi";
 import Head from "next/head";
 import CardMainGlobal from "../../components/CardMainGlobal";
-import JsFileDownloader from "js-file-downloader";
-
+import fileDownloader from 'js-file-download'
 const IdPhoto = () => {
   const router = useRouter();
   const { query } = router;
@@ -24,7 +23,7 @@ const IdPhoto = () => {
     getImageId(query.id);
   }, [query.id]);
   const down = (size, id) => {
-    new JsFileDownloader({
+    /* new JsFileDownloader({
       url: size
     })
       .then(function () {
@@ -32,7 +31,8 @@ const IdPhoto = () => {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      }); */
+      fileDownloader(size, `${id}.jpg`)
   };
   return (
     <div>
