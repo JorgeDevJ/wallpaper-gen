@@ -22,27 +22,22 @@ const IdPhoto = () => {
   useEffect(() => {
     getImageId(query.id);
   }, [query.id]);
-  const down = (size, id) => {};
   return (
     <div>
       <Head>
         <title>Download</title>
       </Head>
       {image.map(({ urls, id, width, height, links }) => {
-        const { full, raw } = urls;
+        const { full, raw, regular } = urls;
         return (
           <>
             <CardMainGlobal
               key={id}
-              image={raw}
+              image={regular}
               id_image={id}
               w={width}
               h={height}
             />
-            {/* <a href={links.download} download={id}>
-              descargar
-            </a>
-            <button onClick={down(links.download)}>Descargar</button> */}
             <ImageDownloader imageUrl={full} imageTitle={id}>
               Descargar imagen
             </ImageDownloader>

@@ -58,6 +58,7 @@ const Search = () => {
                     user_name={user.username}
                     user_image={profile_image.medium}
                     id_user={user.id}
+                    id_image={id}
                   />
                 );
               }
