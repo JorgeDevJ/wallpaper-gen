@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import JsFileDownloader from "js-file-downloader";
+
 import styled from "styled-components";
 const CardContainer = styled.div`
   margin-bottom: 10px;
@@ -54,19 +54,6 @@ const CardMainGlobal = ({
   user_name,
   id_image,
 }) => {
-  const downloadImage = (e) => {
-    e.preventDefault();
-    new JsFileDownloader({
-      url: image,
-      headers: [{ name: id_image }],
-    })
-      .then(function () {
-        console.log("descarga completa");
-      })
-      .catch(function (error) {
-        consoloe.log(error);
-      });
-  };
   return (
     <CardContainer>
       <CardImageInfo>
