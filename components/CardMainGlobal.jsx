@@ -5,6 +5,8 @@ import JsFileDownloader from "js-file-downloader";
 import styled from "styled-components";
 const CardContainer = styled.div`
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
   .image_card {
     border-radius: 10px;
   }
@@ -12,6 +14,7 @@ const CardContainer = styled.div`
 const CardImageInfo = styled.div`
   position: relative;
   padding: 20px;
+  width: 50%;
 `;
 const ContainerUsuario = styled.div`
   position: absolute;

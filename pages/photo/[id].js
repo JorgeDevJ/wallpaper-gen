@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getIdPhoto } from "../../services/apiconfig/indexApi";
+import Head from "next/head";
 import CardMainGlobal from "../../components/CardMainGlobal";
+import JsFileDownloader from "js-file-downloader";
+
 const IdPhoto = () => {
   const router = useRouter();
   const { query } = router;
@@ -20,9 +23,25 @@ const IdPhoto = () => {
   useEffect(() => {
     getImageId(query.id);
   }, [query.id]);
+  const down = (size, id) => {
+    new JsFileDownloader({
+      url: size,
+      headers: [{ name: id }],
+    })
+      .then(function () {
+        console.log("descarga completa");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <div>
-      {image.map(({ urls, id, width, height }) => {
+      <Head>
+        <title>Download</title>
+      </Head>
+      {console.log(image)}
+      {image.map(({ urls, id, width, height, links }) => {
         const { full, raw } = urls;
         return (
           <>
@@ -33,9 +52,10 @@ const IdPhoto = () => {
               w={width}
               h={height}
             />
-            <a href={full} download={id}>
+            <a href={links.download} download={id}>
               descargar
             </a>
+            <button onClick={down(links.download, id)}>Descargar</button>
           </>
         );
       })}
