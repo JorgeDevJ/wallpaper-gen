@@ -25,8 +25,7 @@ const IdPhoto = () => {
   }, [query.id]);
   const down = (size, id) => {
     new JsFileDownloader({
-      url: size,
-      headers: [{ name: "unsplash.com", value: `${id}` }],
+      url: size
     })
       .then(function () {
         console.log("descarga completa");
@@ -40,7 +39,6 @@ const IdPhoto = () => {
       <Head>
         <title>Download</title>
       </Head>
-      {console.log(image)}
       {image.map(({ urls, id, width, height, links }) => {
         const { full, raw } = urls;
         return (
@@ -55,7 +53,7 @@ const IdPhoto = () => {
             <a href={links.download} download={id}>
               descargar
             </a>
-            <button onClick={down(links.download, id)}>Descargar</button>
+            <button onClick={down(links.download)}>Descargar</button>
           </>
         );
       })}
