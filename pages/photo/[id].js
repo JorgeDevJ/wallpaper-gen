@@ -26,7 +26,7 @@ const IdPhoto = () => {
   const down = (size, id) => {
     new JsFileDownloader({
       url: size,
-      headers: [{ name: id }],
+      headers: [{ name: "Authorization", value: `${id}` }],
     })
       .then(function () {
         console.log("descarga completa");
