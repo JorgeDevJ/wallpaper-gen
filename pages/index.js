@@ -25,7 +25,7 @@ export default function Home() {
           <ListPages next={nextPage} prev={prevPage} pageInit={pageId} />
           <GridImages>
             {data.map(({ id, urls, alt_description, width, height, user }) => {
-              const { regular } = urls;
+              const { regular, small } = urls;
               return (
                 <Card
                   key={id}

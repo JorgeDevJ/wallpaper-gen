@@ -4,7 +4,7 @@ const Search = async (req, res) => {
   const {
     query: { page, query },
   } = req;
-  const URL = `https://api.unsplash.com/search/photos?page=${page}&query=${query}&per_page=30`;
+  const URL = `https://api.unsplash.com/search/photos?page=${page}&query=${query}&per_page=15`;
   const response = await axios.get(URL, {
     params: {
       client_id: process.env.KEY_UNSPLASH,

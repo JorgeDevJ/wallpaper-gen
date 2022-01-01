@@ -4,6 +4,7 @@ import { getIdPhoto } from "../../services/apiconfig/indexApi";
 import Head from "next/head";
 import CardMainGlobal from "../../components/CardMainGlobal";
 import { ImageDownloader } from "@samvera/image-downloader";
+import styled from "styled-components";
 const IdPhoto = () => {
   const router = useRouter();
   const { query } = router;
@@ -38,7 +39,13 @@ const IdPhoto = () => {
               w={width}
               h={height}
             />
-            <ImageDownloader imageUrl={full} imageTitle={id}>
+            <ImageDownloader
+              style={{
+                textAlign: "center",
+              }}
+              imageUrl={full}
+              imageTitle={id}
+            >
               Descargar imagen
             </ImageDownloader>
           </>

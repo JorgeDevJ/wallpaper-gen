@@ -6,7 +6,7 @@ const Grid = styled.main`
   -moz-column-gap: 10px;
   -webkit-column-width: 400px;
   -moz-column-width: 400px;
-  column-width: 400px;
+  column-width: 350px;
   counter-reset: item;
   list-style: none;
   margin: 0 auto;

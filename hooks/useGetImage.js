@@ -1,11 +1,11 @@
-import React from "react";
 import { getDataImageSearch } from "../services/apiconfig/indexApi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 const useGetImage = (q, page) => {
   const [images, setImages] = useState([]);
   const [pageValue, setPageValue] = useState(1);
   const [loader, setLoader] = useState(false);
-  const getTopImage = async (value, pageIndex) => {
+
+  const getImage = useCallback(async (value, pageIndex) => {
     try {
       setLoader(true);
       const { data } = await getDataImageSearch({
@@ -26,11 +26,10 @@ const useGetImage = (q, page) => {
     } catch (error) {
       console.log(error);
     }
-  };
-
+  }, []);
   useEffect(() => {
-    getTopImage(q, page);
-  }, [q, page]);
+    getImage(q, page);
+  }, [page, q, getImage]);
   return [images, pageValue, loader];
 };
 
