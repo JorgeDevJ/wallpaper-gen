@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Search = async (req, res) => {
+const Search = async (req, resresresres) => {
   const {
     query: { page, query },
   } = req;
