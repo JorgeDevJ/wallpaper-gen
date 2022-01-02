@@ -44,12 +44,12 @@ const Search = () => {
           <GridImages>
             {images.map(
               ({ id, urls, alt_description, width, height, user }) => {
-                const { regular } = urls;
+                const { regular, raw } = urls;
                 const { profile_image, name, username } = user;
                 return (
                   <Card
                     key={id}
-                    image={regular}
+                    image={raw}
                     title={alt_description}
                     w={width}
                     h={height}

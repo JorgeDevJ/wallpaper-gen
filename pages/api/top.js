@@ -5,7 +5,7 @@ const getList = async (req, res) => {
   const {
     query: { page },
   } = req;
-  const URL = `https://api.unsplash.com/photos?page=${page}&per_page=15`;
+  const URL = `https://api.unsplash.com/photos?page=${page}`;
   const response = await axios.get(URL, {
     params: {
       client_id: process.env.KEY_UNSPLASH,
