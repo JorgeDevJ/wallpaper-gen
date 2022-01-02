@@ -76,7 +76,7 @@ const Card = ({
             alt={id_image}
             width={w}
             height={h}
-            quality={40}
+            quality={50}
             /*loading={lazy o eager} */
             placeholder="blur"
             blurDataURL
