@@ -63,7 +63,6 @@ const Card = ({
             alt={id_image}
             width={w}
             height={h}
-            quality="90"
             priority
             placeholder="blur"
             blurDataURL
@@ -76,8 +75,6 @@ const Card = ({
             alt={id_user}
             width={30}
             height={30}
-            quality="90"
-            priority
             placeholder="blur"
             blurDataURL
           />
