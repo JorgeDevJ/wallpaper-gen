@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { getDataImage } from "../services/apiconfig/indexApi";
+import { getData } from "../services/apiconfig/indexApi";
 import useLocalStorage from "use-local-storage";
 const useGetListInit = () => {
   const [data, setData] = useState([]);
@@ -9,12 +9,12 @@ const useGetListInit = () => {
   const getTopImage = useCallback(async (pageId) => {
     try {
       setLoader(true);
-      const { data } = await getDataImage({
+      const { data } = await getData.get("/photos", {
         params: {
           page: pageId,
         },
       });
-      const response = data.data;
+      const response = data;
       setData(response);
       if (response.length !== 0) {
         setLoader(false);

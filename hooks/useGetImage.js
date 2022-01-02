@@ -1,4 +1,4 @@
-import { getDataImageSearch } from "../services/apiconfig/indexApi";
+import { getData } from "../services/apiconfig/indexApi";
 import { useState, useEffect, useCallback } from "react";
 const useGetImage = (q, page) => {
   const [images, setImages] = useState([]);
@@ -8,14 +8,14 @@ const useGetImage = (q, page) => {
   const getImage = useCallback(async (value, pageIndex) => {
     try {
       setLoader(true);
-      const { data } = await getDataImageSearch({
+      const { data } = await getData.get("/search/photos", {
         params: {
           query: value,
           page: pageIndex,
         },
       });
-      const response = data.data.results;
-      const p = data.data.total_pages;
+      const response = data.results;
+      const p = data.total_pages;
       setImages(response);
       if (response.length !== 0) {
         setLoader(false);

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import UserLayaut from "../layaut/UserLayaut";
 import ScreenComponent from "../../components/ScreenComponent";
-import { getSearchUser } from "../../services/apiconfig/indexApi";
+import { getData } from "../../services/apiconfig/indexApi";
 import UserInfo from "../../components/UserInfo";
 import GridImages from "../../components/GridImages";
 import CardMainGlobal from "../../components/CardMainGlobal";
@@ -16,12 +16,8 @@ const User = () => {
   const getUser = async (user) => {
     try {
       setLoader(true);
-      const { data } = await getSearchUser({
-        params: {
-          username: user,
-        },
-      });
-      const response = data.data;
+      const { data } = await getData.get(`/users/${user}`);
+      const response = data;
       setUser([response]);
       setPhotos(response.photos);
       setLoader(false);
