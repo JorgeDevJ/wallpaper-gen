@@ -1,24 +1,25 @@
-import React from "react";
 import Image from "next/image";
-
 import styled from "styled-components";
-const CardContainer = styled.div`
-  margin-bottom: 10px;
-
+import ButtonDownload from "./ButtonDownload";
+const CardContainer = styled.main`
+  display: flex;
+  justify-content: center;
+`;
+const CardImageInfo = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 700px) {
+    width: 50rem;
+  }
+  width: 50%;
   .image_card {
     border-radius: 10px;
   }
 `;
-const CardImageInfo = styled.div`
-  position: relative;
-  padding: 20px;
-  @media (max-width: 700px) {
-    width: 50rem;
-  }
-  width: 40rem;
-`;
 
-const CardMainGlobal = ({ image, w, h, id_image }) => {
+const DownloadItems = ({ image, w, h, id_image, image_download, user }) => {
   return (
     <CardContainer>
       <CardImageInfo>
@@ -33,9 +34,14 @@ const CardMainGlobal = ({ image, w, h, id_image }) => {
           placeholder="blur"
           blurDataURL
         />
+        <ButtonDownload
+          url_image={image_download}
+          user={user}
+          id_image={id_image}
+        />
       </CardImageInfo>
     </CardContainer>
   );
 };
 
-export default CardMainGlobal;
+export default DownloadItems;

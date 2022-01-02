@@ -17,7 +17,6 @@ const Search = () => {
   };
   const prevPage = () => {
     const number = parseInt(page);
-    console.log(number);
     router.push(`/search?q=${q}&page=${number - 1}`, undefined, {
       shallow: true,
     });

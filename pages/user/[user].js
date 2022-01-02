@@ -14,7 +14,6 @@ const User = () => {
   const { query } = router;
   const userName = query.user;
   const getUser = async (user) => {
-    /* const newName = user.replace(/ /g, ""); */
     try {
       setLoader(true);
       const { data } = await getSearchUser({
@@ -66,9 +65,8 @@ const User = () => {
           }
         )
       )}
-      <GridImages>
+      {/* <GridImages>
         {photos.map(({ id, urls, updated_at }) => {
-          /* const { id, blur_hash } = photos[0]; */
           console.log(id);
           return (
             <CardMainGlobal
@@ -80,34 +78,7 @@ const User = () => {
             />
           );
         })}
-      </GridImages>
-      {/* {user.map(
-        ({
-          username,
-          name,
-          profile_image,
-          id,
-          location,
-          bio,
-          total_collections,
-          total_likes,
-          total_photos,
-        }) => {
-          return (
-            <UserInfo
-              key={id}
-              name={name}
-              userName={username}
-              profile={profile_image.large}
-              bio={bio}
-              location={location}
-              photos={total_photos}
-              likes={total_likes}
-              collections={total_collections}
-            />
-          );
-        }
-      )} */}
+      </GridImages> */}
     </UserLayaut>
   );
 };

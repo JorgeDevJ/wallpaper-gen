@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getIdPhoto } from "../../services/apiconfig/indexApi";
-import Head from "next/head";
-import CardMainGlobal from "../../components/CardMainGlobal";
-import { ImageDownloader } from "@samvera/image-downloader";
-import styled from "styled-components";
+
+import DownloadItems from "../../components/DownloadItems";
+import ScreenComponent from "../../components/ScreenComponent";
+import ImageDownLayaut from "../layaut/ImageDownLayaut";
 const IdPhoto = () => {
   const router = useRouter();
   const { query } = router;
   const [image, setImage] = useState([]);
+  const [loader, setLoader] = useState(false);
   const getImageId = async (idP) => {
     try {
+      setLoader(true);
       const { data } = await getIdPhoto({
         params: {
           id: idP,
@@ -18,40 +20,37 @@ const IdPhoto = () => {
       });
       const response = await data.data;
       setImage([response]);
+      setLoader(false);
     } catch (error) {}
   };
   useEffect(() => {
     getImageId(query.id);
   }, [query.id]);
   return (
-    <div>
-      <Head>
-        <title>Download</title>
-      </Head>
-      {image.map(({ urls, id, width, height, links }) => {
-        const { full, raw, regular } = urls;
-        return (
-          <>
-            <CardMainGlobal
-              key={id}
-              image={regular}
-              id_image={id}
-              w={width}
-              h={height}
-            />
-            <ImageDownloader
-              style={{
-                textAlign: "center",
-              }}
-              imageUrl={full}
-              imageTitle={id}
-            >
-              Descargar imagen
-            </ImageDownloader>
-          </>
-        );
-      })}
-    </div>
+    <ImageDownLayaut>
+      {loader ? (
+        <ScreenComponent />
+      ) : (
+        <>
+          {image.map(({ urls, id, width, height, user }) => {
+            const { full, raw, regular } = urls;
+            return (
+              <>
+                <DownloadItems
+                  key={id}
+                  image={full}
+                  id_image={id}
+                  w={width}
+                  h={height}
+                  image_download={full}
+                  user={user.username}
+                />
+              </>
+            );
+          })}
+        </>
+      )}
+    </ImageDownLayaut>
   );
 };
 
