@@ -13,11 +13,7 @@ const IdPhoto = () => {
   const getImageId = async (idP) => {
     try {
       setLoader(true);
-      const { data } = await getData.get("/photos", {
-        params: {
-          id: idP,
-        },
-      });
+      const { data } = await getData.get(`/photos/${idP}`);
       const response = data;
       setImage([response]);
       setLoader(false);
