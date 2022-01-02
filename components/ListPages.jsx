@@ -21,7 +21,10 @@ const Button = styled.button`
 const ListPages = ({ pageInit, pageFinish, prev, next }) => {
   return (
     <ContainerDivButton>
-      <Button visible={pageInit === "1" ? "hidden" : "visible"} onClick={prev}>
+      <Button
+        visible={parseInt(pageInit) === 1 ? "hidden" : "visible"}
+        onClick={prev}
+      >
         Page {pageInit}
       </Button>
       <div
