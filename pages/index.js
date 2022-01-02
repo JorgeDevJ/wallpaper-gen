@@ -5,6 +5,7 @@ import HomeIndex from "./layaut/HomeIndex";
 import GridImages from "../components/GridImages";
 import ListPages from "../components/ListPages";
 import ScreenComponent from "../components/ScreenComponent";
+
 export default function Home() {
   const [data, pageId, setPageid, loader] = useGetListInit();
   const nextPage = () => {
@@ -13,11 +14,13 @@ export default function Home() {
   const prevPage = () => {
     setPageid(pageId - 1);
   };
+
   return (
     <HomeIndex>
       <Head>
         <title>Home</title>
       </Head>
+
       {loader ? (
         <ScreenComponent />
       ) : (
@@ -25,11 +28,11 @@ export default function Home() {
           <ListPages next={nextPage} prev={prevPage} pageInit={pageId} />
           <GridImages>
             {data.map(({ id, urls, alt_description, width, height, user }) => {
-              const { regular, small } = urls;
+              const { regular, small, raw } = urls;
               return (
                 <Card
                   key={id}
-                  image={regular}
+                  image={raw}
                   title={alt_description}
                   id_image={id}
                   w={width}

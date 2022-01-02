@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { getIdPhoto } from "../../services/apiconfig/indexApi";
+import { getData } from "../../services/apiconfig/indexApi";
 
 import DownloadItems from "../../components/DownloadItems";
 import ScreenComponent from "../../components/ScreenComponent";
@@ -13,12 +13,12 @@ const IdPhoto = () => {
   const getImageId = async (idP) => {
     try {
       setLoader(true);
-      const { data } = await getIdPhoto({
+      const { data } = await getData.get("/photos", {
         params: {
           id: idP,
         },
       });
-      const response = await data.data;
+      const response = data;
       setImage([response]);
       setLoader(false);
     } catch (error) {}
