@@ -1,15 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
+import useLocalStorage from "use-local-storage";
 const CardContainer = styled.div`
   margin-bottom: 10px;
   .image_card {
     border-radius: 10px;
-  }
-  &:hover {
-    transform: scale(0.95);
-    transition: transform ease-in-out 0.2s;
   }
 `;
 const CardImageInfo = styled.div`
@@ -42,6 +39,15 @@ const ContainerUsuario = styled.div`
     border-radius: 100px;
   }
 `;
+const FavoriteContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #000;
+  padding: 10px;
+  border-radius: 0 0 0 5px;
+`;
+
 const Card = ({
   image,
   title,
@@ -53,6 +59,13 @@ const Card = ({
   user_name,
   id_image,
 }) => {
+  const [favorite, setFavorite] = useLocalStorage("value", false);
+  const [lisFavorite, setListFavorite] = useLocalStorage("id", []);
+  const handleFavorite = (e) => {
+    const item = [e.target.id];
+    setFavorite(!favorite);
+    setListFavorite([...item]);
+  };
   return (
     <CardContainer>
       <CardImageInfo>
@@ -63,7 +76,8 @@ const Card = ({
             alt={id_image}
             width={w}
             height={h}
-            priority
+            quality={5}
+            /*loading={lazy o eager} */
             placeholder="blur"
             blurDataURL
           />
@@ -82,6 +96,23 @@ const Card = ({
             <span className="spanInfo">{user}</span>
           </Link>
         </ContainerUsuario>
+        {/* <FavoriteContainer value={id_image} onClick={handleFavorite}>
+          {favorite ? (
+            <box-icon
+              id={id_image}
+              name="heart"
+              color="#fff"
+              type="solid"
+            ></box-icon>
+          ) : (
+            <box-icon
+              id={id_image}
+              name="heart"
+              color="#fff"
+              type="regular"
+            ></box-icon>
+          )}
+        </FavoriteContainer> */}
       </CardImageInfo>
     </CardContainer>
   );

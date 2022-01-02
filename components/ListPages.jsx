@@ -16,19 +16,22 @@ const Button = styled.button`
   cursor: pointer;
   font-family: "Catamaran", sans-serif;
   font-size: 16px;
+  visibility: ${(props) => props.visible};
 `;
 const ListPages = ({ pageInit, pageFinish, prev, next }) => {
   return (
     <ContainerDivButton>
-      <Button onClick={prev}>Prev</Button>
+      <Button visible={pageInit === "1" ? "hidden" : "visible"} onClick={prev}>
+        Page {pageInit}
+      </Button>
       <div
         style={{
           margin: "0 1rem",
         }}
       >
-        <span>{pageInit}</span> / <span>{pageFinish}</span>
+        <span>{pageInit}</span>
       </div>
-      <Button onClick={next}>Next</Button>
+      <Button onClick={next}>Page {parseInt(pageInit) + 1} </Button>
     </ContainerDivButton>
   );
 };
