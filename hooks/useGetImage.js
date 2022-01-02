@@ -15,7 +15,7 @@ const useGetImage = (q, page) => {
         },
       });
       const response = data.results;
-      const p = data.data.total_pages;
+      const p = data.total_pages;
       setImages(response);
       if (response.length !== 0) {
         setLoader(false);
