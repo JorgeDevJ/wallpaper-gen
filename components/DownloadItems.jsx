@@ -29,7 +29,7 @@ const DownloadItems = ({ image, w, h, id_image, image_download, user }) => {
           alt={id_image}
           width={w}
           height={h}
-          quality={60}
+          quality={50}
           priority
           placeholder="blur"
           blurDataURL
