@@ -11,9 +11,11 @@ const CardContainer = styled.div`
 `;
 const CardImageInfo = styled.div`
   position: relative;
+  cursor: pointer;
 `;
 const ContainerUsuario = styled.div`
   position: absolute;
+  cursor: pointer;
   bottom: 3.5px;
   @media (min-width: 1000px) {
     padding: 10px 30% 10px 15px;

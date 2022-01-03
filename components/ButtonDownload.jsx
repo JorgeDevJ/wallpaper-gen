@@ -8,7 +8,7 @@ const ButtonDownload = ({ url_image, user, id_image }) => {
       iconColor={"#fff"}
       className="button"
     >
-      Descargar imagen
+      Download image
     </ImageDownloader>
   );
 };
