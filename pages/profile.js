@@ -13,15 +13,26 @@ const Profile = () => {
   /* const p = profileP; */
 
   const Logout = () => {
-    auth.signOut();
-    console.log(user);
-    deleteUser(user).then(() => {
-      setNombre("");
-      setProfileP("");
-    });
-    router.replace("/").catch((error) => {
-      console.log(error);
-    });
+    if (user !== "") {
+      auth.signOut().then(() => {
+        setNombre("");
+        setProfileP("");
+        deleteUser(user).then(() => {});
+        router.replace("/").catch((error) => {
+          console.log(error);
+        });
+      });
+    } else {
+      console.log(user);
+    }
+    /* if (user !== null) {
+      deleteUser(user).then(() => {});
+      router.replace("/").catch((error) => {
+        console.log(error);
+      });
+    } else {
+      null;
+    } */
   };
   return (
     <>
