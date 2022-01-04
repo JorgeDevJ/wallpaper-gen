@@ -6,6 +6,7 @@ import Button from "../../components/Button";
 import { UserInfo } from "../../context/user";
 import User from "../../components/User";
 import styled from "styled-components";
+import Link from "next/link";
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -27,7 +28,13 @@ const HomeIndex = (props) => {
         <Button />
         <SearchAnduser>
           <Search />
-          <User profile={profileP} />
+          {nombre !== "" ? (
+            <User profile={profileP} />
+          ) : (
+            <Link href={"/login"}>
+              <a>Registrate</a>
+            </Link>
+          )}
         </SearchAnduser>
       </Header>
       {props.children}
