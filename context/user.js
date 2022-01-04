@@ -5,4 +5,6 @@ export const UserInfo = createContext({
   setNombre: () => {},
   setProfileP: () => {},
   profileP: null,
+  login: null,
+  setLogin: () => {},
 });

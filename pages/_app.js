@@ -13,11 +13,14 @@ function MyApp({ Component, pageProps }) {
 
   const [nombre, setNombre] = useLocalStorage("user", "");
   const [profileP, setProfileP] = useLocalStorage("profile", "");
+  const [login, setLogin] = useState(true);
   const value = {
     nombre,
     setNombre,
     setProfileP,
     profileP,
+    login,
+    setLogin,
   };
   /* useEffect(() => {
     init;
