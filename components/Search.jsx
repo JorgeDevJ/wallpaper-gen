@@ -12,6 +12,7 @@ const ContainerInput = styled.div`
   width: 44px;
   height: 44px;
   transition: 0.2s;
+  margin: 0 1rem;
   &:hover {
     width: 30vh;
     background: transparent;

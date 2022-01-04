@@ -5,7 +5,6 @@ import HomeIndex from "./layaut/HomeIndex";
 import GridImages from "../components/GridImages";
 import ListPages from "../components/ListPages";
 import ScreenComponent from "../components/ScreenComponent";
-
 export default function Home() {
   const [data, pageId, setPageid, loader] = useGetListInit();
   const nextPage = () => {

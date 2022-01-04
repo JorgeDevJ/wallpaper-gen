@@ -25,7 +25,7 @@ const ListPages = ({ pageInit, pageFinish, prev, next }) => {
         visible={parseInt(pageInit) === 1 ? "hidden" : "visible"}
         onClick={prev}
       >
-        Page {pageInit}
+        Page {pageInit - 1}
       </Button>
       <div
         style={{
@@ -42,7 +42,7 @@ const ListPages = ({ pageInit, pageFinish, prev, next }) => {
 ListPages.propTypes = {
   prev: PropTypes.func,
   next: PropTypes.func,
-  pageInit: PropTypes.string,
+  pageInit: PropTypes.number,
   pageFinish: PropTypes.number,
 };
 export default ListPages;
