@@ -28,6 +28,20 @@ font-family: 'Lato', sans-serif;
         margin: 15px;
         width: 70%;
     }
+    ::-webkit-scrollbar {
+        width: 14px;
+        height: 14px;
+    }
+    ::-webkit-scrollbar {
+        width: 14px;
+        height: 14px;
+    }
+    ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track{
+        border: 4px solid transparent;
+        background-clip: padding-box;
+        border-radius: 8px;
+    }
+
 `;
 
 export default Global;
