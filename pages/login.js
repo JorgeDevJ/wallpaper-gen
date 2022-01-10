@@ -21,7 +21,7 @@ border: none;
 background: #000;
 color: #fff;
 padding: 15px;
-border-radius: 5px
+border-radius: 5px;
 outline: none;
 `
 const Login = () => {
