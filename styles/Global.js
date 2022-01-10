@@ -36,6 +36,9 @@ font-family: 'Lato', sans-serif;
         width: 14px;
         height: 14px;
     }
+    ::-webkit-scrollbar-thumb{
+        background-color: #000;
+    }
     ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track{
         border: 4px solid transparent;
         background-clip: padding-box;
