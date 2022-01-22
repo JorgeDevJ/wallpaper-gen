@@ -47,6 +47,11 @@ font-family: 'Lato', sans-serif;
     a{
         text-decoration: none;
     }
+    img{
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
 
 `;
 
