@@ -44,6 +44,9 @@ font-family: 'Lato', sans-serif;
         background-clip: padding-box;
         border-radius: 8px;
     }
+    a{
+        text-decoration: none;
+    }
 
 `;
 

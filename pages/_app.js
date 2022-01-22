@@ -7,10 +7,6 @@ import "../styles/normalize.css";
 import "../styles/not_found.css";
 import { UserInfo } from "../context/user";
 function MyApp({ Component, pageProps }) {
-  /* const init = () => {
-    return JSON.parse(localStorage.getItem("value")) || { log: false };
-  }; */
-
   const [nombre, setNombre] = useLocalStorage("user", "");
   const [profileP, setProfileP] = useLocalStorage("profile", "");
   const [login, setLogin] = useState(true);
@@ -22,15 +18,14 @@ function MyApp({ Component, pageProps }) {
     login,
     setLogin,
   };
-  /* useEffect(() => {
-    init;
-    localStorage.setItem("value", JSON.stringify(nombre));
-  }, [nombre]); */
 
   return (
     <UserInfo.Provider value={value}>
       <Script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></Script>
-
+      <Script
+        type="text/javascript"
+        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61eb543715d4d25d"
+      ></Script>
       <Component {...pageProps} />
       <Global />
     </UserInfo.Provider>

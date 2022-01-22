@@ -1,12 +1,12 @@
 import { useContext } from "react";
-
+import Button from "../../components/Button";
 import Head from "next/head";
 import Search from "../../components/Search";
-import Button from "../../components/Button";
 import { UserInfo } from "../../context/user";
 import User from "../../components/User";
 import styled from "styled-components";
 import Link from "next/link";
+import { ButtonLogin } from "../login";
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -17,6 +17,7 @@ const SearchAnduser = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const HomeIndex = (props) => {
   const { nombre, profileP } = useContext(UserInfo);
   return (
@@ -31,8 +32,10 @@ const HomeIndex = (props) => {
           {nombre !== "" ? (
             <User profile={profileP} />
           ) : (
-            <Link href={"/login"}>
-              <a>Registrate</a>
+            <Link href={"/login"} passHref>
+              <ButtonLogin>
+                <a>Register</a>
+              </ButtonLogin>
             </Link>
           )}
         </SearchAnduser>

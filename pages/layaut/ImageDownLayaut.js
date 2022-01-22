@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { UserInfo } from "../../context/user";
 import User from "../../components/User";
+import { ButtonLogin } from "../login";
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -29,8 +30,10 @@ const ImageDownLayaut = (props) => {
           {nombre !== "" ? (
             <User profile={profileP} />
           ) : (
-            <Link href={"/login"}>
-              <a>Registrate</a>
+            <Link href={"/login"} passHref>
+              <ButtonLogin>
+                <a>Register</a>
+              </ButtonLogin>
             </Link>
           )}
         </SearchAnduser>

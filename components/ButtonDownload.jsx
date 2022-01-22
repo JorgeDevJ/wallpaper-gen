@@ -1,6 +1,6 @@
 import { ImageDownloader } from "@samvera/image-downloader";
-
 const ButtonDownload = ({ url_image, user, id_image }) => {
+
   return (
     <ImageDownloader
       imageUrl={url_image}
@@ -9,6 +9,7 @@ const ButtonDownload = ({ url_image, user, id_image }) => {
       className="button"
     >
       Download image
+
     </ImageDownloader>
   );
 };
