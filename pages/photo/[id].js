@@ -34,7 +34,7 @@ const IdPhoto = () => {
               <>
                 <DownloadItems
                   key={user}
-                  image={full}
+                  image={regular}
                   id_image={id}
                   w={width}
                   h={height}

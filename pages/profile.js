@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { UserInfo } from "../context/user";
 import Image from "next/image";
 import { auth } from "../services/firebase";
-import { deleteUser } from "firebase/auth";
+import styled from "styled-components";
 import { useRouter } from "next/router";
 import Head from "next/head";
 const user = auth.currentUser;
@@ -18,7 +18,6 @@ const Profile = () => {
       auth.signOut().then(() => {
         setNombre("");
         setProfileP("");
-        deleteUser(user).then(() => {});
         router.replace("/").catch((error) => {
           console.log(error);
         });
@@ -26,30 +25,51 @@ const Profile = () => {
     } else {
       console.log(user);
     }
-    /* if (user !== null) {
-      deleteUser(user).then(() => {});
-      router.replace("/").catch((error) => {
-        console.log(error);
-      });
-    } else {
-      null;
-    } */
   };
   return (
     <>
       <Head>
         <title>Profile</title>
       </Head>
-      <h1>{nombre}</h1>
+      <Container>
+        <h1>{nombre}</h1>
 
-      {nombre !== "" ? (
-        <>
-          <Image src={profileP} alt={nombre} width={50} height={50} />
-          <button onClick={Logout}>Logout</button>
-        </>
-      ) : null}
+        {nombre !== "" ? (
+          <>
+            <Image
+              className="image"
+              src={profileP}
+              alt={nombre}
+              width={100}
+              height={100}
+            />
+            <ButtonLogout onClick={Logout}>Logout</ButtonLogout>
+          </>
+        ) : null}
+      </Container>
     </>
   );
 };
-
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  .image {
+    border-radius: 100px;
+  }
+`;
+const ButtonLogout = styled.button`
+  background-color: #000;
+  border: 0;
+  outline: none;
+  color: #fff;
+  padding: 15px 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Catamaran", sans-serif;
+  font-size: 22px;
+  margin: 2rem 0;
+`;
 export default Profile;

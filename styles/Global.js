@@ -24,9 +24,9 @@ font-family: 'Lato', sans-serif;
         outline: none;
         padding: 15px;
         color: #fff;
-        font-size: 22px;
+        font-size: 20px;
         margin: 15px;
-        width: 70%;
+        width: 80%;
     }
     ::-webkit-scrollbar {
         width: 14px;
