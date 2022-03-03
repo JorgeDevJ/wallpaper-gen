@@ -49,7 +49,7 @@ const Search = () => {
                 return (
                   <Card
                     key={id}
-                    image={raw}
+                    image={regular}
                     title={alt_description}
                     w={width}
                     h={height}
