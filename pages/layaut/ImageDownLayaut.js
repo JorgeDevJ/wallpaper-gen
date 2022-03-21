@@ -1,3 +1,4 @@
+import loadable from "@loadable/component";
 import { useContext } from "react";
 import Head from "next/head";
 const Button = loadable(() => import("../../components/Button"));
