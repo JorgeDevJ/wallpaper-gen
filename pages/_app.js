@@ -22,6 +22,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserInfo.Provider value={value}>
       <Script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></Script>
+
       <Component {...pageProps} />
       <Global />
     </UserInfo.Provider>

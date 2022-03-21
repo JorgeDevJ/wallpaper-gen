@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import loadable from "@loadable/component";
 import { useRouter } from "next/router";
-const UserLayaut = loadable(() => import("../layaut/UserLayaut"));
-const ScreenComponent = loadable(() =>
-  import("../../components/ScreenComponent")
-);
-const UserInfo = loadable(() => import("../../components/UserInfo"));
+import UserLayaut from "../layaut/UserLayaut";
+import ScreenComponent from "../../components/ScreenComponent";
 import { getData } from "../../services/apiconfig/indexApi";
+import UserInfo from "../../components/UserInfo";
 const User = () => {
   const [user, setUser] = useState([]);
+  const [photos, setPhotos] = useState([]);
   const [loader, setLoader] = useState(false);
   const router = useRouter();
   const { query } = router;
@@ -19,6 +17,7 @@ const User = () => {
       const { data } = await getData.get(`/users/${user}`);
       const response = data;
       setUser([response]);
+      setPhotos(response.photos);
       setLoader(false);
     } catch (error) {
       console.log(error);
