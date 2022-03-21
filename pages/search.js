@@ -1,10 +1,11 @@
+import loadable from "@loadable/component";
 import { useRouter } from "next/router";
-import Card from "../components/Card";
-import GridImages from "../components/GridImages";
-import useGetImage from "../hooks/useGetImage";
-import HomeIndex from "./layaut/HomeIndex";
-import ListPages from "../components/ListPages";
-import ScreenComponent from "../components/ScreenComponent";
+const Card = loadable(() => import("../components/Card"));
+const GridImages = loadable(() => import("../components/GridImages"));
+const ListPages = loadable(() => import("../components/ListPages"));
+const ScreenComponent = loadable(() => import("../components/ScreenComponent"));
+const useGetImage = loadable(() => import("../hooks/useGetImage"));
+const HomeIndex = loadable(() => import("./layaut/HomeIndex"));
 const Search = () => {
   const router = useRouter();
   const { q, page } = router.query;

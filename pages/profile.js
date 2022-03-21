@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserInfo } from "../context/user";
 import Image from "next/image";
 import { auth } from "../services/firebase";

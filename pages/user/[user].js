@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
+import loadable from "@loadable/component";
 import { useRouter } from "next/router";
-import UserLayaut from "../layaut/UserLayaut";
-import ScreenComponent from "../../components/ScreenComponent";
+const UserLayaut = loadable(() => import("../layaut/UserLayaut"));
+const ScreenComponent = loadable(() =>
+  import("../../components/ScreenComponent")
+);
+const UserInfo = loadable(() => import("../../components/UserInfo"));
 import { getData } from "../../services/apiconfig/indexApi";
-import UserInfo from "../../components/UserInfo";
-import GridImages from "../../components/GridImages";
-import CardMainGlobal from "../../components/CardMainGlobal";
 const User = () => {
   const [user, setUser] = useState([]);
-  const [photos, setPhotos] = useState([]);
   const [loader, setLoader] = useState(false);
   const router = useRouter();
   const { query } = router;
@@ -19,7 +19,6 @@ const User = () => {
       const { data } = await getData.get(`/users/${user}`);
       const response = data;
       setUser([response]);
-      setPhotos(response.photos);
       setLoader(false);
     } catch (error) {
       console.log(error);
@@ -61,20 +60,6 @@ const User = () => {
           }
         )
       )}
-      {/* <GridImages>
-        {photos.map(({ id, urls, updated_at }) => {
-          console.log(id);
-          return (
-            <CardMainGlobal
-              key={id}
-              image={urls.raw}
-              title={updated_at}
-              w={100}
-              h={100}
-            />
-          );
-        })}
-      </GridImages> */}
     </UserLayaut>
   );
 };

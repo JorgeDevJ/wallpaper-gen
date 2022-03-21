@@ -1,10 +1,11 @@
+import loadable from "@loadable/component";
 import Head from "next/head";
-import Card from "../components/Card";
-import useGetListInit from "../hooks/useGetListInit";
-import HomeIndex from "./layaut/HomeIndex";
-import GridImages from "../components/GridImages";
-import ListPages from "../components/ListPages";
-import ScreenComponent from "../components/ScreenComponent";
+const useGetListInit = loadable(() => improt("../hooks/useGetListInit"));
+const HomeIndex = loadable(() => import("./layaut/HomeIndex"));
+const GridImages = loadable(() => import("../components/GridImages"));
+const ListPages = loadable(() => import("../components/ListPages"));
+const Card = loadable(() => import("../components/Card"));
+const ScreenComponent = loadable(() => import("../components/ScreenComponent"));
 export default function Home() {
   const [data, pageId, setPageid, loader] = useGetListInit();
   const nextPage = () => {

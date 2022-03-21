@@ -1,10 +1,12 @@
+import loadable from "@loadable/component";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getData } from "../../services/apiconfig/indexApi";
-
-import DownloadItems from "../../components/DownloadItems";
-import ScreenComponent from "../../components/ScreenComponent";
-import ImageDownLayaut from "../layaut/ImageDownLayaut";
+const DownloadItems = loadable(() => import("../../components/DownloadItems"));
+const ScreenComponent = loadable(() =>
+  import("../../components/ScreenComponent")
+);
+const ImageDownLayaut = loadable(() => import("../layaut/ImageDownLayaut"));
 const IdPhoto = () => {
   const router = useRouter();
   const { query } = router;

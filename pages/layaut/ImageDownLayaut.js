@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import Head from "next/head";
-import Search from "../../components/Search";
-import Button from "../../components/Button";
+const Button = loadable(() => import("../../components/Button"));
+const User = loadable(() => import("../../components/User"));
 import styled from "styled-components";
 import Link from "next/link";
 import { UserInfo } from "../../context/user";
-import User from "../../components/User";
 import { ButtonLogin } from "../login";
 const Header = styled.header`
   display: flex;
