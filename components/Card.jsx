@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import useLocalStorage from "use-local-storage";
+import useBlurData from "use-next-blurhash";
 const CardContainer = styled.div`
   margin-bottom: 10px;
   .image_card {
@@ -40,21 +40,9 @@ const ContainerUsuario = styled.div`
     border-radius: 100px;
   }
 `;
-const keyStr =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-
-const triplet = (e1, e2, e3) =>
-  keyStr.charAt(e1 >> 2) +
-  keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
-  keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
-  keyStr.charAt(e3 & 63);
-const rgbDataURL = (r, g, b) =>
-  `data:image/gif;base64,R0lGODlhAQABAPAA${
-    triplet(0, r, g) + triplet(b, 255, 255)
-  }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 const Card = ({
   image,
-  title,
+  blur,
   w,
   h,
   user,
@@ -63,6 +51,7 @@ const Card = ({
   user_name,
   id_image,
 }) => {
+  const [blurDataUrl] = useBlurData(blur);
   return (
     <CardContainer>
       <CardImageInfo>
@@ -76,7 +65,7 @@ const Card = ({
             quality={50}
             /*loading={lazy o eager} */
             placeholder="blur"
-            blurDataURL
+            blurDataURL={blurDataUrl}
           />
         </Link>
         <ContainerUsuario>

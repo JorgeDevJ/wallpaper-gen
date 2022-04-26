@@ -12,6 +12,7 @@ const useGetImage = (q, page) => {
         params: {
           query: value,
           page: pageIndex,
+          per_page: 20,
         },
       });
       const response = data.results;

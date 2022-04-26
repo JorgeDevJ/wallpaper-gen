@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import ButtonDownload from "./ButtonDownload";
+import useBlurData from "use-next-blurhash";
 const CardContainer = styled.main`
   display: flex;
   justify-content: center;
@@ -19,7 +20,16 @@ const CardImageInfo = styled.div`
   }
 `;
 
-const DownloadItems = ({ image, w, h, id_image, image_download, user }) => {
+const DownloadItems = ({
+  image,
+  w,
+  h,
+  id_image,
+  image_download,
+  user,
+  blur,
+}) => {
+  const [blurDataUrl] = useBlurData(blur);
   return (
     <CardContainer>
       <CardImageInfo>
@@ -32,7 +42,7 @@ const DownloadItems = ({ image, w, h, id_image, image_download, user }) => {
           quality={50}
           priority
           placeholder="blur"
-          blurDataURL
+          blurDataURL={blurDataUrl}
         />
         <ButtonDownload
           url_image={image_download}

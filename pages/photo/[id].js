@@ -28,7 +28,7 @@ const IdPhoto = () => {
         <ScreenComponent />
       ) : (
         <>
-          {image.map(({ urls, id, width, height, user }) => {
+          {image.map(({ urls, id, width, height, user, blur_hash }) => {
             const { full, raw, regular } = urls;
             return (
               <>
@@ -40,6 +40,7 @@ const IdPhoto = () => {
                   h={height}
                   image_download={full}
                   user={user.username}
+                  blur={blur_hash}
                 />
               </>
             );

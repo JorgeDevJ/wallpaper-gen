@@ -21,6 +21,7 @@ const Search = () => {
       shallow: true,
     });
   };
+
   return (
     <HomeIndex>
       {loader ? (
@@ -40,10 +41,19 @@ const Search = () => {
           >
             Results for: {q}
           </h1>
-          {console.log(pageValue)}
+          {console.log(images)}
+
           <GridImages>
             {images.map(
-              ({ id, urls, alt_description, width, height, user }) => {
+              ({
+                id,
+                urls,
+                alt_description,
+                width,
+                height,
+                user,
+                blur_hash,
+              }) => {
                 const { regular, raw } = urls;
                 const { profile_image, name, username } = user;
                 return (
@@ -58,6 +68,7 @@ const Search = () => {
                     user_image={profile_image.medium}
                     id_user={user.id}
                     id_image={id}
+                    blur={blur_hash}
                   />
                 );
               }

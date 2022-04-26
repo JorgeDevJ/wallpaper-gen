@@ -12,6 +12,8 @@ const useGetListInit = () => {
       const { data } = await getData.get("/photos", {
         params: {
           page: pageId,
+          per_page: 20,
+          order_by: "popular",
         },
       });
       const response = data;
