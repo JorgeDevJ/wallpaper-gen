@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ContButton = styled.div`
   visibility: ${(props) => props.visible};
 `;
-const ButtonReturn = styled.button`
+export const ButtonM = styled.button`
   background-color: #000;
   border: 0;
   outline: none;
@@ -22,7 +22,7 @@ const Button = () => {
   };
   return (
     <ContButton visible={router.pathname === "/" ? "hidden" : "visible"}>
-      <ButtonReturn onClick={Back}>Return</ButtonReturn>
+      <ButtonM onClick={Back}>Return</ButtonM>
     </ContButton>
   );
 };

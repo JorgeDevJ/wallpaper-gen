@@ -40,15 +40,18 @@ const ContainerUsuario = styled.div`
     border-radius: 100px;
   }
 `;
-const FavoriteContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #000;
-  padding: 10px;
-  border-radius: 0 0 0 5px;
-`;
+const keyStr =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
+const triplet = (e1, e2, e3) =>
+  keyStr.charAt(e1 >> 2) +
+  keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
+  keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
+  keyStr.charAt(e3 & 63);
+const rgbDataURL = (r, g, b) =>
+  `data:image/gif;base64,R0lGODlhAQABAPAA${
+    triplet(0, r, g) + triplet(b, 255, 255)
+  }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 const Card = ({
   image,
   title,
@@ -60,13 +63,6 @@ const Card = ({
   user_name,
   id_image,
 }) => {
-  const [favorite, setFavorite] = useLocalStorage("value", false);
-  const [lisFavorite, setListFavorite] = useLocalStorage("id", []);
-  const handleFavorite = (e) => {
-    const item = [e.target.id];
-    setFavorite(!favorite);
-    setListFavorite([...item]);
-  };
   return (
     <CardContainer>
       <CardImageInfo>
