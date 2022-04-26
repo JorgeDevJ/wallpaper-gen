@@ -1,0 +1,23 @@
+[
+  { "item": "Current Events", "key": 1 },
+  { "item": "Wallpapers", "key": 2 },
+  { "item": "3D Renders", "key": 3 },
+  { "item": "Textures& Patterns", "key": 4 },
+  { "item": "Experimental", "key": 5 },
+  { "item": "Architecture", "key": 6 },
+  { "item": "Nature", "key": 7 },
+  { "item": "Bussines & Work", "key": 8 },
+  { "item": "Fashion", "key": 9 },
+  { "item": "Film", "key": 10 },
+  { "item": "Food & Drink", "key": 11 },
+  { "item": "Health & Wellness", "key": 12 },
+  { "item": "Peole", "key": 13 },
+  { "item": "Interiors", "key": 14 },
+  { "item": "Street Photograpy", "key": 15 },
+  { "item": "Travel", "key": 16 },
+  { "item": "Animals", "key": 17 },
+  { "item": "Spirituality", "key": 18 },
+  { "item": "Arts & Culture", "key": 19 },
+  { "item": "History", "key": 20 },
+  { "item": "Athletics", "key": 21 }
+]
