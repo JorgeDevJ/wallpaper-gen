@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import GridImages from "./GridImages";
+import Card from "./Card";
 
 const ContainerData = styled.main`
   margin: 2rem;
