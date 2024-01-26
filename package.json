@@ -11,7 +11,7 @@
     "@egjs/react-flicking": "^4.6.1",
     "@loadable/component": "^5.15.2",
     "@samvera/image-downloader": "^1.1.1",
-    "axios": "^0.27.1",
+    "axios": "^1.0.0",
     "firebase": "^9.6.11",
     "next": "12.1.5",
     "npm-check-updates": "^12.5.9",
